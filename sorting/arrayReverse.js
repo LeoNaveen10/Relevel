@@ -22,8 +22,13 @@ function reverseNno(arr,start,end){
    
 }
 let arr=[1,2,3,4,5,6,7];
-//reverse(arr,2);
-//console.log(arr);
+reverse(arr,2);
+console.log(arr);
+
+
+
+
+
 
 
 
@@ -39,18 +44,19 @@ function blockSwap(arr,d,n){
   
     if(d==n||d==0) return;
 
-    if(d>n) d%=n;
+    if(d>n) d%=n; //if d is greater than n, we use this
 
-    let i=d;
-    let j=n-d;
+    let i=d;  //2
+    let j=n-d;  //5
 
     while(i!=j){
 
-        if(i<j){
-            swap(arr,d-i,d+j-i,i);
+        if(i<j){                       
+            swap(arr,d-i,d+j-i,i);   //(arr,0,5,2)
             j-=i;
-        }else{
-            swap(arr,d-i,d,j);
+        }
+        else{
+            swap(arr,d-i,d,j);   //(arr,0,2,5)
             i-=j;
         }
     }
