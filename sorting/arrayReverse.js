@@ -22,7 +22,7 @@ function reverseNno(arr,start,end){
    
 }
 let arr=[1,2,3,4,5,6,7];
-reverse(arr,2);
+//reverse(arr,2);
 console.log(arr);
 
 
@@ -72,5 +72,5 @@ function swap(arr,start,end,d){
 
 } 
 
-blockSwap(arr,2,7);
+//blockSwap(arr,2,7);
 console.log("block swap",arr);
