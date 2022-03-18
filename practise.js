@@ -104,3 +104,6 @@ console.log(toFind3rdBiggestUniqueNumber(arry));
 a = [1, 1, 4, 4, 6, 7, 8, 9, 5, 5, 3];
 console.log(toFind3rdBiggestUniqueNumber(a));
 
+
+
+

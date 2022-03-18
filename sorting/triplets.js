@@ -14,7 +14,8 @@ function triplets(arr,n,sum){
             if(current+arr[l]+arr[r]<sum){
                 temp+= (r-l);
                 l++;
-            }else r--;
+            }
+            else r--;
         }
     } return temp;
 }
@@ -31,6 +32,7 @@ function triplets(arr,n,sum){
  */
 function tripletsInbetweenRange(arr,n,l,r){
     arr.sort((a,b)=>a-b);
+
         let right=count(arr,n,r);
         let left = count(arr,n,l-1);
         return right-left;
@@ -54,8 +56,9 @@ function count(arr,n,sum){
     } return temp;
   
 }
-//arr=[5,1,4,3,2];
-//console.log(tripletsInbetweenRange(arr,5,2,7));
+arr=[5,1,4,3,2];
+
+console.log("triplets in between range is",tripletsInbetweenRange(arr,5,2,7));
 
 
 /**
@@ -77,10 +80,10 @@ function mergeArray(arr1,arr2){
     temp.push(arr2[j++]);
 console.log(temp);*/
 
-        arr1.push(...arr2[i]);
+        arr1.push(...arr2);
     
     arr1.sort((a,b)=>a-b);
-   // console.log(arr1);
+   console.log("merged array is",arr1);
 }
 
 arr1=[2,6,8];
@@ -98,7 +101,7 @@ function reducedForm(arr,n){
    
     let temp = new Map();
 
-    let temparr=[...arr];
+    let temparr=[...arr];   //original order is saved
     temparr.sort((a,b)=>a-b);   //3,5,8,34,40
 
     for(let i=0;i<n;i++){
@@ -108,7 +111,7 @@ function reducedForm(arr,n){
     for(let i=0;i<n;i++)
       arr[i]=temp.get(arr[i]);  //temp.get(5) gives 1 ....
 
-    console.log(arr);
+    console.log("reduced form is",arr);
 }
 
 let a=[5,40,3,8,34];

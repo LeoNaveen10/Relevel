@@ -10,18 +10,18 @@ let GenerateSubsequence =(arr,index,tempArr)=>{
     
     //include number
     GenerateSubsequence(arr,index+1,tempArr);
-    tempArr.push(arr[index]);   
+    tempArr.push(arr[index]); 
 
     //if does not includes
     GenerateSubsequence(arr,index+1,tempArr);
-    tempArr.pop();    //remove the recentlly added
+    tempArr.pop();                             //remove the recentlly added
 }
 
 
 let printSubsequence =(arr)=>{
     let str = " ";
     for(let i=0;i<arr.length;i++){
-        str+=arr[i]+" ";2
+        str+=arr[i]+" ";
     }
     console.log(str);
 }
