@@ -12,4 +12,17 @@ let arraysum = (arr) => {
 }
 
 let arr = [1, 2, [3, 4, 5, [6, 7]], [100]];
-console.log(arraysum(arr));
+//console.log(arraysum(arr));
+
+
+
+
+
+let arr1 = [3,5,6,7,8];
+
+//arr1.push(...arr2);
+
+//arr1.sort((a,b)=> a-b);
+
+//console.log(Math.min(...arr1));
+
