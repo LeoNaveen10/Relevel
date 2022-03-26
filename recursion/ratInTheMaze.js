@@ -11,10 +11,12 @@ let isSafe = (board,row,col,n) =>{
     }
 }
 
+
 //just a starting point to implement sol array to store results
 let solveMaze = (board,n)=>{
     let sol = new Array(n);
 
+    //set solution array for zero
     for(let i=0;i<n;i++){
         sol[i]=new Array(n);
         for(let j=0;j<n;j++){
@@ -23,11 +25,11 @@ let solveMaze = (board,n)=>{
     }
 
     if(findPath(board,0,0,sol,n)==false){
-        console.log("path not found")
-
+        console.log("path not found");
     }
     else 
       printSol(sol);
+
 }
 
 
@@ -35,37 +37,37 @@ let solveMaze = (board,n)=>{
 let findPath = (board,row,col,sol,n)=>{
 
     //base condition to check whether the answers are reached
-    if(row==n-1 && col==n-1 &&board[row][col]==1){
+    if(row==n-1 && col==n-1 && board[row][col]==1){
         sol[row][col]=1;
         return true;
     }
 
     if(isSafe(board,row,col,n)){
-        //check if the path is already crossed by us
+         //check if the path is already crossed by us
         if(sol[row][col]==1){
             return false;
         }
 
-        //if path is not crossed already we are setting one on the path
+         //if path is not crossed already we are setting one on the path
         sol[row][col]=1;
         
-        //move forward in left side
+         //move forward in right side
         if(findPath(board,row,col+1,sol,n))
             return true;
 
-            //move downward
+         //move downward
         if(findPath(board,row+1,col,sol,n))
             return true;
 
-        //backtrack move right side
+         //backtrack move left side
         if(findPath(board,row,col-1,sol,n))
             return true;
         
-        //backtrack move upward
+         //backtrack move upward
         if(findPath(board,row-1,col,sol,n))
             return true;
 
-      //if no path is present then
+         //if no path is present then
         sol[row][col]=0;
         return false;
     }

@@ -26,3 +26,7 @@ let arr1 = [3,5,6,7,8];
 
 //console.log(Math.min(...arr1));
 
+
+console.log(sum);
+let sum=9;
+

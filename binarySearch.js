@@ -26,9 +26,10 @@ let binarySearch = (arr, target) => {
 
 /**
  * using recursion
+ * => let consider the array are sorted already
  */
 let binaryTree = (arr,x,start,end)=>{
-    if(start>=end) return;   
+    if(start>=end) return; 
 
     let mid =  start+parseInt(end-start/2);
 

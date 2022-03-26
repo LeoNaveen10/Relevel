@@ -52,7 +52,7 @@ function fibonnaci(no){
         return fibonnaci(no-1)+fibonnaci(no-2);
 }
 
-//console.log(fibonnaci(7)); 
+console.log(fibonnaci(7)); 
 
 let series=(no)=>{
     if(no<=1){
