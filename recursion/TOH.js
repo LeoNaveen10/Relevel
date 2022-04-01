@@ -12,5 +12,5 @@ function Toh(n,x,y,z){
     }
 }
 
-Toh(3,"x","y","z");
+Toh(20,"x","y","z");
 console.log("total movement is :", count);

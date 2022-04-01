@@ -13,13 +13,14 @@ let findSubArray=(arr,start,end)=>{
         let str = " ";
         for(let i=start;i<end;i++){
             str+=arr[i]+" ";
-        } str+=arr[end]+" ";
-        
+        } 
+        str+=arr[end]+" ";
         console.log(str);
+
         findSubArray(arr,start+1,end);
     }
-    return;
 
+    return;
 }
 
 findSubArray(arr,0,0);

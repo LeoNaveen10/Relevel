@@ -6,9 +6,6 @@
 let a =[[1,2,3],[4,5,6],[7,8,9]];
 let b =[[1,0,0],[0,1,0],[0,0,1]];
 
-//console.log(a.length, "*",a[0].length);
-//console.log(b.length, "*",b[0].length);
-
 let result = [[],[],[]];
 let m1=a.length;
 let n1=a[0].length;
@@ -24,7 +21,12 @@ for(let i=0;i<m1;i++){
     }
 }
 
-//console.table(result);
+console.table(result);
+
+/**
+ * Tc - three loops - o(n^3)
+ * Sc - O(n^2) - beacuse of new 2D matrix
+ */
 
 
 // initilize array through constructors
