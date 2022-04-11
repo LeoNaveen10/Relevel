@@ -3,7 +3,7 @@
  */
 
 function triplets(arr,n,sum){
-    arr.sort((a,b)=> a-b);
+    arr.sort((a,b)=> a-b);  //in ascending order
     let temp=0;
     
     for(let i=0;i<n-2;i++){
@@ -17,19 +17,20 @@ function triplets(arr,n,sum){
             }
             else r--;
         }
-    } return temp;
+    }
+     return temp;
 }
 
-//let arr=[5,1,3,4,7];
-//console.log(triplets(arr,arr.length,12));
+let arr=[5,1,3,4,7];
+console.log(triplets(arr,arr.length,12));
 
 /**
  * finding triplets in range
  * less than or equal to l-1 = left
  * less than or equal to r = right
- * 
  * right-left gives answer
  */
+
 function tripletsInbetweenRange(arr,n,l,r){
     arr.sort((a,b)=>a-b);
 
@@ -44,16 +45,18 @@ function count(arr,n,sum){
     let temp=0;
     
     for(let i=0;i<n-2;i++){
+
         let current = arr[i];
         let l=i+1,r=n-1;
         
         while(r>l){
             if(current+arr[l]+arr[r]<=sum){
-                temp+= (r-l);
+                temp+= (r-l);   
                 l++;
             }else r--;
         }
-    } return temp;
+    }
+     return temp;
   
 }
 arr=[5,1,4,3,2];
@@ -92,27 +95,36 @@ arr2=[3,7,45];
 mergeArray(arr1,arr2);
 
 
-/** 
- *convert array to reduced form 
+/*
+*  find triplets of numbers from array
+ */
 
-*/
-
-function reducedForm(arr,n){
-   
-    let temp = new Map();
-
-    let temparr=[...arr];   //original order is saved
-    temparr.sort((a,b)=>a-b);   //3,5,8,34,40
-
-    for(let i=0;i<n;i++){
-        temp.set(temparr[i],i); //3-->0,5-->1,8-->2...
+function threeNumberSum(array, target){
+    array.sort((a,b)=> a-b); // nlogn
+    let result=[];
+    
+    for(let i=0; i<array.length-2; i++){
+        let j=i+1;
+        let k = array.length-1;
+        while(j<=k){
+            if(array[i]+array[j]+array[k]==target){
+                result.push([array[i], array[j], array[k]]);
+                j++;//k--;
+            }else if(array[i]+array[j]+array[k]>target){
+                    k--;
+            }else{
+               j++;
+             }
+        }
     }
-
-    for(let i=0;i<n;i++)
-      arr[i]=temp.get(arr[i]);  //temp.get(5) gives 1 ....
-
-    console.log("reduced form is",arr);
+    console.table(result);
 }
 
-let a=[5,40,3,8,34];
-reducedForm(a,5);
+// T(n) => nlogn + n^2 => n^2
+// S(n) => O(n)
+
+
+const array = [2,7,3,4,-1,12,9,5]
+const target = 15
+threeNumberSum(array, target);
+// output

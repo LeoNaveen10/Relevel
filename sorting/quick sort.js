@@ -18,7 +18,7 @@ function findPivot(arr, start, end) {
      /**
       * find how many elements are smaller
       */
-     let random = Math.floor((Math.random()*start)+end); //taking random number as pivot element
+     let random = Math.floor((Math.random()*start)+end);  //taking random number as pivot element
   
      swap(arr,random,end);
 
@@ -33,6 +33,7 @@ function findPivot(arr, start, end) {
                swap(arr,pi,j);
           }
      }
+     
      //we are placing pivot in correct position
      swap(arr,pi+1,end);     
      return pi+1;
