@@ -27,10 +27,11 @@ var permute = function(nums){
             }
         }
     }
+
     printPermutation(arr,map,[],ans);
     return ans;
 }
 
 
-const ans = permute([1,2,3]);
+const ans = permute([1,2,3,4]);
 console.table(ans);

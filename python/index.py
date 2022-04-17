@@ -27,3 +27,35 @@ logical operators : and or not
 
 if 5>6 and 5>1:
     print("logical crct");
+
+
+"""
+lists  -- ordered and changable
+"""
+ 
+mylist =["apple","banana","cherry"];
+print(mylist);
+
+
+"""""
+TUples -- ordered and unchangeable
+"""""
+
+mytuple = ("apple","banana","cherry");
+print(mytuple);
+
+
+mysets = {"apple","banana","cherry"}; #unordered and unchangable
+print(mysets);
+
+
+mydict = {                #ordered and changeable
+    "name" : "messi",
+    "club" : "football club barcelona",
+    "year" : 1987 
+}
+
+#print(mydict);
+
+x = mydict.items();
+print(x);

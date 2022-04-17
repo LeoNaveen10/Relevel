@@ -18,10 +18,12 @@ let bucketSort=(arr)=>{
   }
 
   for(let i=0;i<len;i++){
-      const index = Math.floor(arr[i]/len);  
+      let index = Math.floor(arr[i]/len);  
+      if(index<0){
+        index*=-1;
+      }
         //we can use anything to store values in different buckets
       bucket[index].push(arr[i]);
-
       console.log(index, " ",bucket[index]);
     }
 
@@ -39,6 +41,8 @@ let bucketSort=(arr)=>{
 }
 
 bucketSort([4,3,8,7]);
+
+// bucketSort([-1,-5,-7,-9]);
 
 /**
  * TC:
