@@ -18,7 +18,6 @@
  *  }
  */
 
-const arr=[2,4,5,6,7,7,7,7,9],key=7;
 
 function searchForRange(arr,key){
         rangeResult = [-1,-1];
@@ -61,3 +60,10 @@ function searchHelper(arr,left,right,key,rangeResult,searchInLeft){
 }
 
 searchForRange(arr,key);
+
+
+
+    /**
+     *  TC - O(logn + logn) -- O(2 logn) - O (logn)
+     *  SC - O(log n) - every time space gets divided  
+     */
