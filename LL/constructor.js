@@ -38,7 +38,7 @@ class linkedlist {
                 pre = temp;
                 temp = temp.next;
             }
-            this.tail=pre;
+            this.tail=pre;               //setting the last before element to tail
             this.tail.next=null;
             this.length--;
 
@@ -50,7 +50,7 @@ class linkedlist {
         }
     }
 
-    unshift(value){  //adding element in first o(1)
+    unshift(value){  //adding element in first o(1)   //adding  element
 
         const newnode = new newNode(value);  //create new node
       
@@ -64,7 +64,7 @@ class linkedlist {
         }
         return this;
     }
-    shift(){
+    shift(){   //remove first item
         if(!this.head){             //empty list
             return "list is undefined"
         }else{
@@ -102,11 +102,15 @@ class linkedlist {
     }
 
     insert(index,value){
-        if(index==0) return this.unshift(value);
+
+        if(index==0) 
+          return this.unshift(value);
      
-        else if(index==this.length-1) return this.push(value);
+        else if(index==this.length-1) 
+          return this.push(value);
      
-        else if(index<0 || index>=this.length) return undefined; //index should be within the range
+        else if(index<0 || index>=this.length) 
+           return undefined; //index should be within the range
      
         else {
             const newnode = new newNode(value);
@@ -121,8 +125,10 @@ class linkedlist {
     }
 
     remove(index){
-        if(index==0) return this.shift();
-        else if(index==this.length-1) return this.pop()
+        if(index==0) 
+           return this.shift();
+        else if(index==this.length-1) 
+           return this.pop()
         
         else {
           let pre = this.head,temp=this.head;
@@ -131,6 +137,7 @@ class linkedlist {
               pre = temp;
               temp=temp.next;
           }
+
           pre.next=temp.next;
           temp.next=null;
           this.length--;
@@ -139,8 +146,12 @@ class linkedlist {
     }
 
     reverse(){
+
         //reverse the value of head and tail              
         let temp=this.head;
+
+
+        
         this.head=this.tail;
         this.tail=temp;
 
