@@ -149,9 +149,6 @@ class linkedlist {
 
         //reverse the value of head and tail              
         let temp=this.head;
-
-
-        
         this.head=this.tail;
         this.tail=temp;
 
