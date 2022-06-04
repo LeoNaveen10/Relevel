@@ -34,7 +34,7 @@ function postorderTraversal(root){
 }
 
 /**
- * printing nodes wheenver we touch the node from center
+ * printing nodes whenver we touch the node from center
  */
 
 
@@ -57,17 +57,26 @@ function heightOfTree(root){
     let currHeight = Math.max(leftSubtreeHeight, rightSubtreeHeight) + 1;
     return currHeight; //0
 }
+/**
+ * on each recursive  call we are increasing the current level by 1, then finally printing the values  in the
+ *      particular level when the exact level is reached.
+ */
 
 function printLevelK(root, currLevel, levelToPrint){
     if(root == null) return; //base case
     //root, left , right
     if(currLevel == levelToPrint){
         console.log(root.data);
-        return;
+        return;              //if particular base is found, we can return from execution without calling function again 
+                            // for good TC
     }
     printLevelK(root.left, currLevel+1, levelToPrint);
     printLevelK(root.right, currLevel+1, levelToPrint);
 }
+
+/**
+ * passing each level to printLevel function untilll we reach the maximum height 
+ */
 
 function printAllLevels(root){ //n + (n*height)=> O(n*height)
     let lastLevel = heightOfTree(root);  //O(n)
@@ -78,25 +87,30 @@ function printAllLevels(root){ //n + (n*height)=> O(n*height)
     }
 }
 
+/**
+ * Create queue first, then push the nodes as per the level of the nodes in current tree
+ * Add null after each level, then print as per the level of tree
+ */
+
 function levelOrderOptimized(root){
     if(!root){
         return;
     }
     let queue = new Queue();
-    queue.enqueue(root);
+    queue.enqueue(root);                           // 100 and 101 are only for the first time when adding root to the queue
     queue.enqueue(null);
-    while(!queue.isEmpty()){
+    while(!queue.isEmpty()){                       // then use this while loop to print untill null
         let n = queue.getFront();
         queue.dequeue();
         if(n == null){
-            console.log("--------------------");
+            console.log("--------------------");                    // if null is removed then, enqueue  the null again.  
             if(!queue.isEmpty()){
                 queue.enqueue(null);
             }
             continue;
         }
         console.log(n.data);
-        if(n.left != null){
+        if(n.left != null){                      // add left and right node of the particular node
             queue.enqueue(n.left);
         }
         if(n.right != null){
@@ -153,3 +167,87 @@ let input = [10, 20, 30, 40, 50, null, 60, null, null, null, null, null, null, n
 //      20    30
 //     /  \     \
 //    40  50     60
+
+
+function rightViewOfBinaryTree(root){
+    if(!root){
+        return;
+    }
+    let result=[];
+    let queue = new Queue();
+    queue.enqueue(root);
+    queue.enqueue(null);
+    while(!queue.isEmpty()){
+        let n = queue.getFront();
+        queue.dequeue();
+        if(!queue.isEmpty() && queue.getFront() == null){
+            result.push(n.data);
+        }
+        if(n == null){
+            if(!queue.isEmpty()){
+                queue.enqueue(null);
+            }
+            continue;
+        }
+        if(n.left != null){
+            queue.enqueue(n.left);
+        }
+        if(n.right != null){
+            queue.enqueue(n.right);
+        }
+    }
+    return result;
+}
+
+
+function leftViewOfBinaryTree(root){
+    if(!root){
+        return;
+    }
+    let result=[];
+    let queue = new Queue();
+    queue.enqueue(root);
+    queue.enqueue(null);
+    result.push(root.data);
+    while(!queue.isEmpty()){
+        let n = queue.getFront();
+        queue.dequeue();
+       
+        if(n == null){
+            if(!queue.isEmpty()){
+                queue.enqueue(null);
+                result.push(queue.getFront().data);
+            }
+            continue;
+        }
+        if(n.left != null){
+            queue.enqueue(n.left);
+        }
+        if(n.right != null){
+            queue.enqueue(n.right);
+        }
+    }
+    return result;
+}
+
+
+function isValidBST(root){
+    return isBST(root, Number.MIN_VALUE, Number.MAX_VALUE);
+}
+
+//minimum = maximum of left subtree, maximum => minimum of right subtree
+function isBST(node, minimum, maximum){
+    if(node == null){ //base case
+        return true;
+    }
+
+    if(minimum > node.data || node.data > maximum){
+        return false;
+    }
+
+    let leftSubtreeIsBST = isBST(node.left, minimum, node.data);
+    let rightSubtreeIsBST = isBST(node.right, node.data, maximum);
+
+    return leftSubtreeIsBST && rightSubtreeIsBST;
+}
+
