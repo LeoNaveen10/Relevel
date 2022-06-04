@@ -103,14 +103,14 @@ function levelOrderOptimized(root){
         let n = queue.getFront();
         queue.dequeue();
         if(n == null){
-            console.log("--------------------");                    // if null is removed then, enqueue  the null again.
+            console.log("--------------------");                    // if null is removed then, enqueue  the null again.  
             if(!queue.isEmpty()){
                 queue.enqueue(null);
             }
             continue;
         }
         console.log(n.data);
-        if(n.left != null){                     // add left and right node of the particular node
+        if(n.left != null){                      // add left and right node of the particular node
             queue.enqueue(n.left);
         }
         if(n.right != null){
@@ -167,3 +167,87 @@ let input = [10, 20, 30, 40, 50, null, 60, null, null, null, null, null, null, n
 //      20    30
 //     /  \     \
 //    40  50     60
+
+
+function rightViewOfBinaryTree(root){
+    if(!root){
+        return;
+    }
+    let result=[];
+    let queue = new Queue();
+    queue.enqueue(root);
+    queue.enqueue(null);
+    while(!queue.isEmpty()){
+        let n = queue.getFront();
+        queue.dequeue();
+        if(!queue.isEmpty() && queue.getFront() == null){
+            result.push(n.data);
+        }
+        if(n == null){
+            if(!queue.isEmpty()){
+                queue.enqueue(null);
+            }
+            continue;
+        }
+        if(n.left != null){
+            queue.enqueue(n.left);
+        }
+        if(n.right != null){
+            queue.enqueue(n.right);
+        }
+    }
+    return result;
+}
+
+
+function leftViewOfBinaryTree(root){
+    if(!root){
+        return;
+    }
+    let result=[];
+    let queue = new Queue();
+    queue.enqueue(root);
+    queue.enqueue(null);
+    result.push(root.data);
+    while(!queue.isEmpty()){
+        let n = queue.getFront();
+        queue.dequeue();
+       
+        if(n == null){
+            if(!queue.isEmpty()){
+                queue.enqueue(null);
+                result.push(queue.getFront().data);
+            }
+            continue;
+        }
+        if(n.left != null){
+            queue.enqueue(n.left);
+        }
+        if(n.right != null){
+            queue.enqueue(n.right);
+        }
+    }
+    return result;
+}
+
+
+function isValidBST(root){
+    return isBST(root, Number.MIN_VALUE, Number.MAX_VALUE);
+}
+
+//minimum = maximum of left subtree, maximum => minimum of right subtree
+function isBST(node, minimum, maximum){
+    if(node == null){ //base case
+        return true;
+    }
+
+    if(minimum > node.data || node.data > maximum){
+        return false;
+    }
+
+    let leftSubtreeIsBST = isBST(node.left, minimum, node.data);
+    let rightSubtreeIsBST = isBST(node.right, node.data, maximum);
+
+    return leftSubtreeIsBST && rightSubtreeIsBST;
+}
+
