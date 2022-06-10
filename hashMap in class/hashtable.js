@@ -1,4 +1,27 @@
 
+/**
+ *  when there are 2 or more values stored in the same key value, then that is called collison.
+ * we can solve that issue by 2 methods
+ * 
+ *  * seperate chaining
+ *  * open addressing (linear probing, quadratic ,double probing)
+ */
+
+
+
+
+/**
+ *   "REhasing using load factor"
+ * 
+ * To optimize the earlier given 2 methods, we have to do rehashing using load factor
+ * 
+ * load factor = occupied size / total size
+ * 
+ * if load factor is greater than 0.75 or 0.8, we have to increse the total size available to double.
+ * 
+ */
+
+
 class HashTable{
     constructor(size = 10){
         this.hashTable = new Array(size);
@@ -65,11 +88,11 @@ class HashTable{
     rehash(){
         let oldHashTable = this.hashTable;
         this.hashTable = new Array(2*oldHashTable.length);
-        this.currentSize = 0;
+        this.currentSize = 0;                                             // after set the length will be set for new hashtable
         for(let idx=0; idx<oldHashTable.length; idx++){
             if(oldHashTable[idx]){
                 for(let element = 0; element< oldHashTable[idx].length; element++){
-                    this.set(oldHashTable[idx][element][0], oldHashTable[idx][element][1]);
+                    this.set(oldHashTable[idx][element][0], oldHashTable[idx][element][1]);  //key, value pair gets copied from old to  new table
                 }
             }
         }
