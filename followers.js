@@ -53,3 +53,26 @@ export default updateTwitterFollowers;
 export {
     instagramFollowers
 }
+
+
+
+import axios  from "axios";
+import url from 'url';
+
+const updateYT =async () => {
+    let username = url.parse('https://www.youtube.com/c/ThanthitvNews').pathname;
+    username = username.slice(3,username.length);
+    console.log(username);
+    let obj = {};
+  await  axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=statistics&forUsername=${username}&key=AIzaSyCrOt_umqp0ANXLIHq9RoclicQgVNEOJWg `)
+        .then(res => {
+            console.log(`statusCode: ${res.status}`);
+            console.log(res.data);
+          })
+          .catch(error => {
+            console.error(error);
+          });  
+}
+export default updateYT;
+
+
