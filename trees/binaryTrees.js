@@ -97,20 +97,20 @@ function levelOrderOptimized(root){
         return;
     }
     let queue = new Queue();
-    queue.enqueue(root);                           // 100 and 101 are only for the first time when adding root to the queue
+    queue.enqueue(root); // 100 and 101 are only for the first time when adding root to the queue
     queue.enqueue(null);
-    while(!queue.isEmpty()){                       // then use this while loop to print untill null
+    while(!queue.isEmpty()){   // then use this while loop to print untill null
         let n = queue.getFront();
         queue.dequeue();
         if(n == null){
-            console.log("--------------------");                    // if null is removed then, enqueue  the null again.  
+            console.log("--------------------");  // if null is removed then, enqueue  the null again.  
             if(!queue.isEmpty()){
                 queue.enqueue(null);
             }
             continue;
         }
         console.log(n.data);
-        if(n.left != null){                      // add left and right node of the particular node
+        if(n.left != null){   // add left and right node of the particular node
             queue.enqueue(n.left);
         }
         if(n.right != null){
