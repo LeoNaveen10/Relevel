@@ -49,7 +49,7 @@ async function instagramFollowers(){
 }
 
 
-export default updateTwitterFollowers;
+// export default updateTwitterFollowers;
 export {
     instagramFollowers
 }
