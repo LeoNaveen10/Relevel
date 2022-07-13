@@ -87,6 +87,6 @@ let arr = [];
 
 temp=arr[arr.length-1];
 
-temp.push([4]);
+// temp.push([4]);
 
-console.log(arr);
+console.log(!undefined);
