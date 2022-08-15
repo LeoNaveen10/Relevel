@@ -55,7 +55,7 @@ class Queue{ //circular queue
             this.front = -1;
             this.rear = -1;
         }else{
-            this.front = (this.front + 1)%this.maxLength;
+            this.front = (this.front + 1)%this.maxLength;//this will give the second index of the element
         }
         this.currLength--;
     }

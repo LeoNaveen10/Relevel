@@ -22,6 +22,7 @@ while(num!=0)
     temp=num%10;
     sum=(sum*10)+temp;
     num=(num/10)>>0;
+    console.log(num);
 }
 //console.log(sum);
 

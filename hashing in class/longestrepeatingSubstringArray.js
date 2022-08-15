@@ -3,12 +3,14 @@
 function longestNonRepeatingCharsSubstr(str){
     let i= 0, j =0, maxLength = 0;
     let freqMap = new Map();
+   
     while(j<str.length){
         let ch = str[j];
         if(freqMap.has(ch) && freqMap.get(ch)>= i && freqMap.get(ch) < j){
             i = freqMap.get(ch)+1;
+            console.log(i)
         }
-        freqMap.set(ch, j);
+        freqMap.set(ch, j); console.log(freqMap);
         maxLength = Math.max(maxLength, j-i+1);
         j++;
     }

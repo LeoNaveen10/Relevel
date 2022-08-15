@@ -12,8 +12,8 @@ function maxLengthPalindromePrefix(str){
     let hash1 = 0; 
     let hashRev = 0; 
     for(let i=0; i<str.length; i++){
-        hash1 = ((hash1 * P)%mod + str.charCodeAt(i))%mod;                        //just taking the string from start to end in one type
-        hashRev = (hashRev + (str.charCodeAt(i) * power[i])%mod)%mod;           // taking from end to start in another type
+        hash1 = ((hash1 * P)%mod + str.charCodeAt(i))%mod; //just taking the string from start to end in one type
+        hashRev = (hashRev + (str.charCodeAt(i) * power[i])%mod)%mod;// taking from end to start in another type
         if(hash1 == hashRev) {maxlength = i;}
     }
     return maxlength+1;

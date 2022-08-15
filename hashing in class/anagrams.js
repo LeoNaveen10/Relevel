@@ -9,7 +9,7 @@
 
 /**
  * method : 
- *   First fine the sorted version of the element and use it as a key.
+ *   First find the sorted version of the element and use it as a key.
  *   then with the other values also find the  sorted version and push to value if it is already present or enter into new key position.
  */
 
@@ -24,6 +24,7 @@
             obj[sortedAnagram] = [anagrams[i]];
         }
         //obj[sortedAnagram] ? obj[sortedAnagram].push(anagrams[i]) : obj[sortedAnagram] = [anagrams[i]];
+        console.log(obj);
     }
     return Object.values(obj);
 }

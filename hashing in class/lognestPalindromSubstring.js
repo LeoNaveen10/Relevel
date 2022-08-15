@@ -25,7 +25,7 @@ function longestPalindromicSubstring(str){
 
     let mp = new Map();
 
-    for(let i=0; i<str.length; i++){
+    for(let i=0; i<str.length; i++){ //storing last positions of each value
         mp.set(str[i], i);
     }
     let maxLength = 1;
@@ -33,17 +33,19 @@ function longestPalindromicSubstring(str){
     for(let i=0; i<str.length; i++){
         let currChar = str[i];
         let lastOccIdx = mp.get(currChar);
-        let isSubstrPalindrome = isPalindrome(str, i, lastOccIdx);
+        let isSubstrPalindrome = isPalindrome(str, i, lastOccIdx); //this checks with first occ and last occ of the number
+                                                        //coz only within those range it can be a palindrome
         if(isSubstrPalindrome){
             //expand the palindrome
             let currLength = lastOccIdx-i+1;
             let localAns = str.substr(i, currLength);
-            let start = i-1;
+            let start = i-1; 
             let end = lastOccIdx+1;
+            //this is to check whether front and back of the last palindrome can be a palindrome
             while(i>=0 && end<str.length){
                 if(str[start] == str[end]){
-                    currLength += 2;
-                    localAns = str.substr(start, end-start+1);
+                    currLength += 2; //increase by 2 each time,coz it is matching both front and back
+                    localAns = str.substr(start, end-start+1); //find the substring
                     start--;
                     end++;
                 }else{

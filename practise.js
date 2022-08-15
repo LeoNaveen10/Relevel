@@ -76,4 +76,50 @@
 // let nums = [1,1,2]
 // let temp=[];
     
+// isValidPassword('Naveen12#');
+// function isValidPassword(password){
+//     var passw = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+//     console.log( passw.test(String(password)))
+// }
+
+// console.log(b);
+// let a=9;
+// var b =10;
+// const c=8;
+// let num =36;
+// temp=num.toString();
+// console.log(num);
+// temp = temp.split('');
+// console.log(temp);
+
+//  let body= JSON.stringify({
+//     message: "Access Denied. The user needs to be an Admin.",
+//     success: false,
+//   })
+//   console.log(body);
+
+
+
+// let obj = {
+//   name : 'naveen',
+//   age : '22',
+//   sex : 'male'
+// }
+// Object.keys(obj).map(function(err,index){
+//   console.log(index);
+// })
+
+// let tempObj  = {};
+
+// tempObj['_id'] = {yes : 'no'};
+// console.log(tempObj);
+
+
+// console.log(Math.floor(Date.now()/1000));
+
+
+// str = "hghfhyfjhfhjfjf";
+
+// console.log(str+"zxvc");
+
 
