@@ -123,3 +123,53 @@
 // console.log(str+"zxvc");
 
 
+const obj = {
+    "message" : "yes_sir",
+    "value" : 30
+}
+
+let {message,value} = obj;
+
+console.log(message,"  ",value);
+
+let number = 'nu89aag90'
+number = number.toUpperCase();
+
+const reg = /\(|\)|\d{3}/;
+const reg2 = /[0-9]/
+console.log(reg2.test(number));
+string=" kajfa aga fag sfgaSFFF"
+string = string.replace(/ /g,"").toLowerCase();
+console.log(string);
+
+let a = "akjgdlk    das87878**91?   ///''[]"
+var b = a.replace(/[^a-z0-9]/gi,'').toUpperCase();
+console.log(b);
+
+// const strToCount1 = '2a3bc4kc';
+//     const strToCount2 = '-----';
+//     const strToCount3 = '56fgdd4#$#';
+//     const strToCount4 = 'sdfdffd';
+//     const strToCount5 = '356g f sdf 1';
+//     const strToCount6 = 'gfd';
+//     const re = /[0-9]/g;
+//     console.log(((strToCount1 || '').match(re) || []).length);
+//     console.log(((strToCount2 || '').match(re) || []).length);
+//     console.log(((strToCount3 || '').match(re) || []).length);
+//     console.log(((strToCount4 || '').match(re) || []).length);
+//     console.log(((strToCount5 || '').match(re) || []).length);
+//     console.log(((strToCount6 || '').match(re) || []).length);
+
+
+console.log(new Date());
+
+const vari = Math.random().toString(36).slice(-11)
+console.log(vari);
+
+const yes = "siva@freshdatalabs.com"
+console.log(yes.slice(-11));
+
+
+const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@freshdatalabs.com/;
+    console.log(re.test(yes));
+
