@@ -16,8 +16,8 @@
 //     inputString = inputString.trim().split('\n').map(string => {
 //         return string.trim();
 //     });
-    
-//     main();    
+
+//     main();
 // });
 
 // function readLine() {
@@ -36,7 +36,7 @@
 //             arr[i] = input_ar1[i];
 //         let obj = new Solution();
 //         console.log(obj.inversionCount(arr, N));
-        
+
 //     }
 // }// } Driver Code Ends
 // class Solution {
@@ -44,17 +44,17 @@
 //     inversionCount(arr, N)
 //     {
 //         return sort(arr,0,N-1)
-        
+
 //     }
 // }
 // function sort(arr,start,end){
 //     if(start>=end) return;
 //     let mid = start+parseInt((end-start)/2);
-    
+
 //     let ic1=sort(arr,start,mid);
 //     let ic2=sort(arr,mid+1,end);
 //     let ic3=merge(arr,start,mid,end);
-    
+
 //     return ic1+ic2+ic3;
 // }
 
@@ -72,8 +72,6 @@
 //     return count;
 // }
 
-
-
 // num = 100;
 // var num;
 // console.log(num);
@@ -82,11 +80,13 @@
 // let a;
 // console.log(a);
 
-
 let arr = [];
 
-temp=arr[arr.length-1];
+temp = arr[arr.length - 1];
 
 // temp.push([4]);
 
 console.log(!undefined);
+
+if (null == undefined) console.log('line 91 true');
+else console.log('false');
